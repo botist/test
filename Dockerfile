@@ -8,9 +8,14 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/*
 
 # srvpro
-COPY . /ygopro-server
-WORKDIR /ygopro-server
+WORKDIR /srvpro
+RUN mkdir decks replays logs /redis
 
-#infos
-WORKDIR /ygopro-server
+RUN npm install -g pm2 coffeescript
+
+COPY package*.json ./
+RUN npm i
+
+COPY . .
+
 EXPOSE 7911 7922 7933
