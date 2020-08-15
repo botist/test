@@ -10,8 +10,6 @@ RUN apt update && \
 # srvpro
 COPY . /ygopro-server
 WORKDIR /ygopro-server
-RUN npm ci && \
-    mkdir config decks replays logs /redis
 
 #infos
 WORKDIR /ygopro-server
